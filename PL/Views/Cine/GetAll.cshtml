@@ -1,0 +1,49 @@
+﻿@model ML.Cine
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h2 class="text-center">Cines</h2>
+<hr />
+<a class="btn btn-success" href="@Url.Action("Form","Cine")">Agregar cine</a>
+<hr />
+<div class="text-center">
+    @if(Model.Cines!= null)
+    {
+        if(Model.Cines.Count > 0)
+        {
+            <table class="table table-dark table-responsive">
+                <thead>
+                    <tr>
+                        <th>Editar</th>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Ventas</th>
+                        <th>Zona</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(ML.Cine cine in Model.Cines)
+                    {
+                        <tr>
+                            <td><a class="btn btn-success" href="@Url.Action("Form","Cine",new{idCine = cine.IdCine})"></a></td>
+                            <td>@cine.Nombre</td>
+                            <td class="text-md-center">@cine.Direccion</td>
+                            <td>$ @cine.Ventas</td>
+                            <td>@cine.Zona.Nombre</td>
+                            <td><a class="btn btn-danger" href="@Url.Action("Delete","Cine",new{idCine = cine.IdCine})" onclick="return confirm('¿Seguro que quieres eliminar?')"></a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-warning" role="alert">
+                Sin registros de cines :c
+            </div>
+        }
+    }
+</div>

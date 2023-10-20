@@ -1,0 +1,14 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "ConnectionStrings": {
+    "ESantiagoCine": "Data Source=.;Initial Catalog=ESantiagoCine;User ID=sa;Password=pass@word1",
+    "ProviderName": "System.Data.SqlClient"
+  }
+}
